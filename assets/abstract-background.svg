@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1800" viewBox="0 0 1440 1800" fill="none">
+  <defs>
+    <linearGradient id="violet" x1="800" y1="0" x2="1420" y2="700" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#aa91ff" stop-opacity="0"/>
+      <stop offset=".45" stop-color="#aa91ff" stop-opacity=".42"/>
+      <stop offset="1" stop-color="#aa91ff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="mint" x1="0" y1="950" x2="700" y2="1550" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8bd8c0" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#8bd8c0" stop-opacity=".26"/>
+      <stop offset="1" stop-color="#8bd8c0" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="ribbon" x1="900" y1="0" x2="1400" y2="700" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#aa91ff" stop-opacity="0"/>
+      <stop offset=".55" stop-color="#9772ef" stop-opacity=".07"/>
+      <stop offset="1" stop-color="#9772ef" stop-opacity="0"/>
+    </linearGradient>
+    <path id="curve" d="M900-120C950 80 1350 40 1330 300S1040 500 1170 720s360 200 400 430"/>
+    <path id="lower-curve" d="M-240 860c320 0 180 320 410 360s210-120 420 10 140 380 420 400"/>
+  </defs>
+  <path d="M980-120C1030 80 1430 40 1410 300s-290 200-160 420 360 200 400 430" stroke="url(#ribbon)" stroke-width="190"/>
+  <g stroke="url(#violet)" stroke-width=".8">
+    <use href="#curve"/>
+    <use href="#curve" transform="translate(18 0)"/>
+    <use href="#curve" transform="translate(36 0)"/>
+    <use href="#curve" transform="translate(54 0)"/>
+    <use href="#curve" transform="translate(72 0)"/>
+    <use href="#curve" transform="translate(90 0)"/>
+    <use href="#curve" transform="translate(108 0)"/>
+    <use href="#curve" transform="translate(126 0)"/>
+    <use href="#curve" transform="translate(144 0)"/>
+    <use href="#curve" transform="translate(162 0)"/>
+  </g>
+  <g stroke="url(#mint)" stroke-width=".8">
+    <use href="#lower-curve"/>
+    <use href="#lower-curve" transform="translate(-16 18)"/>
+    <use href="#lower-curve" transform="translate(-32 36)"/>
+    <use href="#lower-curve" transform="translate(-48 54)"/>
+    <use href="#lower-curve" transform="translate(-64 72)"/>
+    <use href="#lower-curve" transform="translate(-80 90)"/>
+    <use href="#lower-curve" transform="translate(-96 108)"/>
+    <use href="#lower-curve" transform="translate(-112 126)"/>
+  </g>
+  <g stroke="#aa91ff" stroke-opacity=".09">
+    <circle cx="1510" cy="1300" r="270"/>
+    <circle cx="1510" cy="1300" r="300"/>
+    <circle cx="1510" cy="1300" r="330"/>
+    <path d="M36 280h64l44 44v70m1100 598h-65l-43 43v90M76 1600v-64l43-43h65"/>
+  </g>
+  <g fill="#b5f1da" fill-opacity=".25">
+    <circle cx="144" cy="394" r="2"/>
+    <circle cx="1136" cy="1125" r="2"/>
+    <circle cx="184" cy="1493" r="2"/>
+  </g>
+  <path d="m1360 830 160-70v280l-160 70Z" fill="#aa91ff" fill-opacity=".025"/>
+  <path d="m-100 1220 190-90v310l-190 90Z" fill="#b5f1da" fill-opacity=".02"/>
+</svg>

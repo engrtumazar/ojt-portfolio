@@ -49,7 +49,7 @@
   setText('#graduation-label', data.graduation);
   setText('#internship-label', `${data.internshipHours} required`);
   setText('#contact-location', data.location);
-  setText('#footer-name', `© ${new Date().getFullYear()} ${data.name}`);
+  setText('#footer-name', `Copyright ${new Date().getFullYear()} ${data.name}`);
 
   const projectGrid = $('#projects-grid');
   projectGrid.innerHTML = data.projects.map((p, index) => {

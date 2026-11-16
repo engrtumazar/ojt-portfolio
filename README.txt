@@ -1,61 +1,232 @@
-﻿BRYAN C. TUMAZAR — OJT PORTFOLIO WEBSITE
-=======================================
+﻿BRYAN C. TUMAZAR - OJT PORTFOLIO
+==============================
 
-WHAT IS INCLUDED
-- index.html     Website structure
-- styles.css     Website design and mobile layout
-- script.js      Projects, contact links, mobile menu, popup details
-- content.js     All personal/project content (EDIT THIS FIRST)
-- assets/        Illustration-only SVG pictures and website icon
+A personal portfolio for a Computer Engineering student at Pamantasan ng
+Lungsod ng Maynila, showcasing academic projects, skills, and OJT interests.
 
-HOW TO PREVIEW
-1. Extract this ZIP folder.
+Repository: https://github.com/engrtumazar/ojt-portfolio
+
+
+OVERVIEW
+--------
+- Dark theme with purple and mint accents and an abstract SVG background.
+- Circular profile photo with orbiting software and hardware icons.
+- Compact project cards: four columns on desktop, two on tablets, and one
+  on smaller screens.
+- "View details" opens a larger project image, contributions, technologies,
+  and an external project link when one is configured.
+- Scroll entrance animations, hover effects, and reduced-motion support.
+- Mobile navigation, keyboard controls, and hidden scrollbars. The page and
+  project dialogs still scroll normally.
+- Email, GitHub, optional LinkedIn, and PDF resume links.
+
+The portfolio uses plain HTML, CSS, and JavaScript. No npm installation,
+framework, database, or build command is needed to run the portfolio itself.
+
+
+FILES
+-----
+index.html                    Page structure and section headings.
+styles.css                    Layout, responsive styles, backgrounds, animation.
+script.js                     Content rendering, project dialogs, navigation.
+content.js                    Personal information, skills, and project data.
+README.txt                    Setup, editing, and publishing instructions.
+assets/profile.jpg            Current profile photo.
+assets/profile-placeholder.svg
+                              Fallback for an unavailable configured photo.
+assets/BRYAN_TUMAZAR - CV.pdf  Current resume.
+assets/vitaband-dashboard.png  Static screenshot preview of the VitaBand UI.
+assets/aquair.svg              AquAir concept illustration.
+assets/robot-arm.svg           Robotic arm illustration.
+assets/sumobot.svg             SumoBot illustration.
+assets/abstract-background.svg
+                              Decorative background artwork.
+assets/favicon.svg            Browser tab icon.
+assets/vitaband.svg            Earlier VitaBand illustration, kept as an asset.
+
+
+RUN LOCALLY
+-----------
+1. Open the MyPortfolio folder in VS Code or Windows File Explorer.
 2. Open index.html in Chrome, Edge, or Firefox.
-3. No installation and no paid subscription needed.
-4. After editing, save your files and press Ctrl + Shift + R in the browser.
-5. The page works offline with system fonts. Online fonts load when available.
+3. After editing, save the files and refresh the browser with Ctrl + Shift + R.
 
-BEFORE SHARING WITH A COMPANY (IMPORTANT)
-1. Open content.js in VS Code or Notepad.
-2. Add your real email in email: "". This enables the "Email me" button.
-3. Add GitHub and LinkedIn links, if you have them. Leave blank if not.
-4. Fill in the TWO empty project 'role' fields for Robotic Arm and SumoBot.
-   Describe what YOU personally contributed. Empty role fields are hidden on the page.
-5. Update project descriptions and technologies to match what you truly did.
-6. Replace the four SVG illustrations with your real photos/screenshots when available.
-   If using images of different names, update their paths in content.js.
-   Then change illustrative: true to illustrative: false on that project.
-   Best image ratio is around 16:9. PNG or JPG also work.
-7. Add links to GitHub repositories, demo videos, or writeups in each
-   project's 'link' field, if you have them.
-8. Optional: put your CV PDF in the assets folder and set
-   resume: "assets/Your-CV-Filename.pdf".
-9. Open index.html again and proofread before making the page public.
+Optional: from a PowerShell terminal inside the project folder, run:
 
-HOW TO PUT IT ONLINE FOR FREE — GITHUB PAGES
-1. Create or sign in to GitHub at https://github.com/ .
-2. Click New repository. Name it e.g. bryan-portfolio; set Public.
-3. Upload index.html, styles.css, content.js, script.js and assets/ into
-   the repository ROOT (not a subfolder). Commit the files.
-4. Open the repository Settings > Pages.
-5. Under Build and deployment, select Deploy from a branch.
-6. Select main and / (root), then Save.
-7. GitHub will display your live URL after publication. The usual format
-   is https://USERNAME.github.io/bryan-portfolio/ .
-8. Test the live URL on a phone and send it to your OJT company.
+    Start-Process .\index.html
 
-OTHER NOTES
-- All project artwork is illustrative, not an actual screenshot.
-- AquAir is correctly labeled as ongoing research/design, not a built device.
-- This is a static website: no server, database, or API keys are required.
-- The site supports keyboard navigation, mobile screens, and reduced motion.
-- No contact data is stored or transmitted by this site.
+Live Server is optional. Google Fonts load when available; the portfolio
+remains usable with system fonts when offline. External project websites
+require an Internet connection.
 
 
-HOW TO ADD YOUR PROFILE PHOTO
-1. Save your portrait in this project's assets folder, for example profile.jpg.
-2. Open content.js and change profileImage: "" to profileImage: "assets/profile.jpg".
-3. Save, then refresh the browser with Ctrl + Shift + R.
-4. JPG, PNG, and WebP files work. Use a portrait with some space around your face.
-5. To adjust the crop, edit object-position in .portrait-image-wrap img in styles.css.
-6. Until a valid photo is supplied, the profile frame displays a neutral placeholder.
+EDIT PERSONAL INFORMATION
+-------------------------
+Open content.js to update the following fields:
+
+- name, firstName, role, headline, introduction, and about.
+- school, degree, graduation, internshipHours, and location.
+- email, github, and resume.
+- profileImage for the portrait.
+- focus for the skill groups and their tags.
+
+An optional LinkedIn button can be added with a linkedin field containing
+its full HTTPS profile URL. Empty or omitted optional links are not shown.
+
+The nickname field is currently not displayed by script.js. Change
+firstName to change the name shown in the introduction.
+
+Some headings and education details are written directly in index.html,
+including the leadership description and the "Fourth-year student" label.
+Edit those there when needed.
+
+
+PROFILE PHOTO AND RESUME
+------------------------
+Current settings in content.js:
+
+    profileImage: "assets/profile.jpg",
+    resume: "assets/BRYAN_TUMAZAR - CV.pdf",
+
+To replace a file, keep its current name or update the corresponding path.
+Keep the full filename, capitalization, extension, and spaces consistent.
+JPG, PNG, and WebP portraits can be used.
+
+The portrait is cropped into a circle. To adjust its framing, edit
+object-position in .portrait-image-wrap img in styles.css.
+
+To change the orbit speed, edit --orbit-period in .portrait-orbit-primary.
+The icons remain upright as they orbit. Reduced-motion settings disable
+these animations.
+
+
+PROJECTS AND WEBSITE LINKS
+--------------------------
+Each item in the projects array in content.js contains:
+
+- id and number: project identification; keep each id unique.
+- title, category, status, and year: card information.
+- image and imageAlt: preview file and descriptive alternative text.
+- illustrative: true for concept artwork; false for a screenshot or photo.
+- summary: short card description; longer text is available in the dialog.
+- role: your individual contribution, shown under "My involvement".
+- details, stack, and takeaway: expanded project information.
+- link: the full HTTP or HTTPS address of the project website or repository.
+
+Example website link:
+
+    link: "https://vitaband2-0.onrender.com"
+
+The project image and title are static on the card. Visitors select
+"View details" to see the expanded image and project information.
+"Open project website" appears inside that dialog when link is valid.
+Leave link as an empty string when no external destination is available.
+
+To use a new project photo or screenshot:
+1. Put the file in assets/.
+2. Set image to its relative path, for example "assets/my-project.jpg".
+3. Write an accurate imageAlt description.
+4. Set illustrative to false.
+5. Remove or update imageCaption if an old caption no longer applies.
+
+A landscape image near 16:9 works best for the card previews.
+
+Current projects:
+- VitaBand 2.0: dashboard preview and external website link.
+- AquAir: ongoing capstone research and system design.
+- Automated Pill Color Sorting Robotic Arm: academic robotics project.
+- Bluetooth-Controlled SumoBot: academic robot project, including hardware
+  assistance under the individual contribution.
+
+The VitaBand preview is a static image of its frontend in the waiting-for-
+data state. Opening its website is separate and may require sign-in.
+AquAir and the two robot previews currently use illustrations. Keep project
+status and individual contributions accurate when updating this content.
+
+
+SAVE UPDATES TO GITHUB
+---------------------
+The current checkout already uses branch main and has origin configured
+for https://github.com/engrtumazar/ojt-portfolio.git.
+
+From a terminal inside MyPortfolio, review and upload changes with:
+
+    git status
+    git add .
+    git commit -m "Update portfolio"
+    git push
+
+To upload only a README edit instead:
+
+    git add README.txt
+    git commit -m "Update portfolio documentation"
+    git push
+
+If Git reports "Author identity unknown", configure the identity for this
+repository. Replace YOUR_GITHUB_EMAIL before running the email command:
+
+    git config user.name "Bryan C. Tumazar"
+    git config user.email "YOUR_GITHUB_EMAIL"
+
+Then retry the commit. Use an email associated with your GitHub account if
+you want GitHub to attribute the commit to your profile.
+
+If main has no upstream branch, run:
+
+    git push -u origin main
+
+Official identity references:
+https://docs.github.com/en/get-started/git-basics/setting-your-username-in-git
+https://docs.github.com/en/account-and-profile/how-tos/email-preferences/setting-your-commit-email-address
+
+
+PUBLISH WITH GITHUB PAGES
+------------------------
+1. Open the ojt-portfolio repository on GitHub.
+2. Go to Settings, then Pages.
+3. Under Build and deployment, choose "Deploy from a branch" as the source.
+4. Select main and / (root), then save.
+5. Use the live URL shown by GitHub after deployment finishes.
+
+The expected project URL, once Pages is enabled, is:
+https://engrtumazar.github.io/ojt-portfolio/
+
+Confirm the published address in Pages settings. This README does not
+confirm that Pages is already enabled. Subsequent pushes to main update
+the site when that branch is configured as its publishing source.
+
+Keep index.html, styles.css, script.js, content.js, and assets/ at the
+repository root. Do not upload them inside another nested portfolio folder.
+
+Official publishing reference:
+https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
+
+
+QUICK TROUBLESHOOTING
+---------------------
+Changes do not appear:
+Save the file, confirm you edited the current MyPortfolio folder, and use
+Ctrl + Shift + R. For the hosted site, also commit and push the changes.
+
+Photo or project image is missing:
+Check its path in content.js and confirm the file exists in assets/.
+Match capitalization exactly, particularly when publishing online.
+
+Resume button is missing or opens an error:
+Check resume in content.js against the actual PDF filename in assets/.
+The current filename has one R at the end of TUMAZAR; spaces are supported.
+
+Website button is missing from a project's details:
+Set that project's link to a complete HTTP or HTTPS URL. Local paths such
+as C:\... and localhost addresses are not public website links.
+
+Animation is not moving:
+Check the device or browser's reduced-motion setting. Content remains
+visible when animations are disabled or unsupported.
+
+Scrollbars are invisible:
+This is intentional. Use the mouse wheel, touch, or keyboard to scroll.
+
+Git says "nothing to commit":
+There are no new staged changes to save. Use git status to inspect the
+checkout; use git push if an existing local commit still needs uploading.

@@ -16,7 +16,7 @@ window.PORTFOLIO_DATA = {
   graduation: "Expected 2027",
   internshipHours: "240 hours",
   location: "Metro Manila, Philippines",
-  email: "bctumazar2022@plm.edu.ph",
+  email: "bryncstrtmzrr@gmail.com",
   github: "https://github.com/engrtumazar",
   resume: "assets/BRYAN_TUMAZAR - CV.pdf",
   about: "My academic work combines electronics, sensor-based systems, and user-facing software. In team projects, I especially enjoy connecting device data to interfaces that make the information easier to understand. Outside technical work, serving as a block representative has helped me practice coordination and clear communication.",

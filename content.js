@@ -1,8 +1,4 @@
-/*
- * EDIT THIS FILE to personalize your OJT portfolio.
- * Leave links as empty strings until you have the real URL.
- * Avoid adding claims, metrics, or tools you cannot discuss in an interview.
- */
+
 window.PORTFOLIO_DATA = {
   name: "Bryan C. Tumazar",
   firstName: "Bryan",
@@ -62,6 +58,7 @@ window.PORTFOLIO_DATA = {
       takeaway: "Connecting hardware events to useful, readable software interfaces.",
       link: "https://vitaband2-0.onrender.com"
     },
+
     {
       id: "robotic-arm",
       number: "02",

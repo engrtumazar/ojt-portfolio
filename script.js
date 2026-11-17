@@ -79,7 +79,7 @@
     </article>`).join('');
 
   const resume = safeUrl(data.resume, true);
-  if (resume) $('#resume-holder').innerHTML = `<a class="text-link" href="${esc(resume)}" target="_blank" rel="noopener noreferrer">View my resume</a>`;
+  if (resume) $('#resume-holder').innerHTML = `<a class="btn btn-primary resume-button" href="${esc(resume)}" target="_blank" rel="noopener noreferrer" aria-label="View my resume (PDF, opens in a new tab)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9Z"/><path d="M14 3v6h6M8 13h8m-8 4h5"/></svg><span>View my resume</span><span class="resume-format" aria-hidden="true">PDF</span></a>`;
 
   const contact = [];
   if (data.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {

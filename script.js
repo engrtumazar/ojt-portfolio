@@ -51,14 +51,19 @@
   setText('#contact-location', data.location);
   setText('#footer-name', `Copyright ${new Date().getFullYear()} ${data.name}`);
 
-  const productMark = '<span class="product-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m7 7 10 10-5 4V3l5 4L7 17"/></svg></span>';
+  const productMark = (project) => {
+    const geometry = project.productIcon === 'robotics'
+      ? '<path d="M3 21h18M6 21v-4h10v4M11 17l-5-7m3-4 7 4m2 1 3 3m-2-5 3 1m-2 4 2-1"/><circle cx="7" cy="7" r="3"/><circle cx="17" cy="11" r="2"/>'
+      : '<path d="m7 7 10 10-5 4V3l5 4L7 17"/>';
+    return '<span class="product-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">' + geometry + '</svg></span>';
+  };
   const projectGrid = $('#projects-grid');
   projectGrid.innerHTML = data.projects.map((p, index) => {
     return `
     <article class="project-card ${index < 2 ? 'project-card-featured' : ''}">
       <div class="project-preview${p.imageFit === 'contain' ? ' project-preview-contain' : ''}${p.imagePresentation === 'product' ? ' product-stage' : ''}">
         <img src="${esc(p.image)}" alt="${esc(p.imageAlt)}" loading="${index > 1 ? 'lazy' : 'eager'}" />
-        ${p.imagePresentation === 'product' ? productMark : ''}
+        ${p.imagePresentation === 'product' ? productMark(p) : ''}
         ${!p.illustrative && p.imageCaption ? `<span class="preview-tag">${esc(p.imageCaption)}</span>` : ''}
       </div>
       <div class="project-info">
@@ -110,7 +115,7 @@
       <h2 id="modal-title">${esc(project.title)}</h2>
       <figure class="dialog-preview${project.imagePresentation === 'product' ? ' product-stage' : ''}">
         <img src="${esc(safeUrl(project.image, true))}" alt="${esc(project.imageAlt)}" width="960" height="540" />
-        ${project.imagePresentation === 'product' ? productMark : ''}
+        ${project.imagePresentation === 'product' ? productMark(project) : ''}
         ${project.illustrative ? '<figcaption>Concept illustration</figcaption>' : project.imageCaption ? `<figcaption>${esc(project.imageCaption)}</figcaption>` : ''}
       </figure>
       ${projectUrl ? `<a class="btn btn-primary dialog-website" target="_blank" rel="noopener noreferrer" href="${esc(projectUrl)}">Open project website</a>` : ''}

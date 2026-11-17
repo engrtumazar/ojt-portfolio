@@ -1,0 +1,9 @@
+ROBOTIC ARM IMAGE EDIT
+
+Mode: Built-in image_gen; transparent background extraction.
+Source: assets/robotic-arm-original.png (retained).
+Selected output: assets/robotic-arm-cutout.png
+Presentation: Shared CSS product stage with a robotic-arm SVG corner mark.
+
+Final prompt:
+Use case: background-extraction. Edit target: the supplied photograph of the user's actual robotic arm. Asset type: transparent cutout for an engineering portfolio project card. Remove only the white background and surrounding empty space. Preserve the exact existing metal robotic arm, camera angle, perspective, pose, round gray base, blue servo, black gripper, red cylinder held by the gripper, exposed circuit board, orange/red/brown wiring, bolts, linkages, surface texture and proportions. Do not redesign or reconstruct the mechanism, change any component, invent hardware, add text, or alter the colors. Keep the full arm, its base, every visible cable, and the entire gripper and red cylinder inside the image. Crop empty margins tightly with a small transparent safety margin. Deliver genuine transparent alpha outside the existing object and in the visible gaps between its linkages. Clean edges, no white fringe, no background color, no checkerboard pattern, no additional shadows or platforms. The website will provide the dark purple background.

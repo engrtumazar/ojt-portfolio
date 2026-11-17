@@ -36,7 +36,9 @@ assets/profile-placeholder.svg
                               Fallback for an unavailable configured photo.
 assets/BRYAN_TUMAZAR - CV.pdf  Current resume.
 assets/vitaband-dashboard.png  Static screenshot preview of the VitaBand UI.
-assets/robot-arm.svg           Robotic arm illustration.
+assets/robotic-arm-cutout.png  Background-removed robotic arm image used on site.
+assets/robotic-arm-original.png
+                              Original supplied robotic arm image.
 assets/sumobot-cutout.png      Background-removed SumoBot image used on the site.
 assets/sumobot.png             Original supplied SumoBot image.
 assets/abstract-background.svg
@@ -139,7 +141,8 @@ Current projects:
 
 The VitaBand preview is a static image of its frontend in the waiting-for-
 data state. Opening its website is separate and may require sign-in.
-The robotic arm preview currently uses an illustration. Keep project
+The robotic arm and SumoBot use supplied images with backgrounds removed.
+Keep project
 status and individual contributions accurate when updating this content.
 
 

@@ -1,0 +1,9 @@
+SUMOBOT IMAGE EDIT
+
+Mode: Built-in image_gen; transparent background extraction.
+Source: assets/sumobot.png (retained).
+Selected output: assets/sumobot-cutout.png
+Presentation: CSS gradients, grid, and a Bluetooth SVG symbol in the card and dialog.
+
+Final prompt:
+Use case: background-extraction. Edit target: the supplied image of the user's actual blue SumoBot. Asset type: transparent cutout for an engineering portfolio project card. Remove only the entire white background, red motion streaks, red halo, and empty margins. Preserve the same exact blue robot, camera angle, orientation, proportions, cartoon eye stickers, black front scoop, tracks/wheels, blue panels, seams, black details, and the two illuminated white-blue headlights. Do not redesign, reconstruct, beautify, change the paint, alter any mechanical geometry, invent features, or add anything to the robot. Keep the real surface texture and photographed details. Frame the whole existing robot tightly with a small even transparent margin so it can display large in a web card; no part of the scoop, headlights, body, or wheels may be cut off. Genuinely transparent alpha outside the robot, clean precise edges, no background color, no checkerboard pattern, no floor, no platform, no text, no logo, no decorative objects. The website will supply its own purple/teal background.

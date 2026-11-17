@@ -63,30 +63,8 @@ window.PORTFOLIO_DATA = {
       link: "https://vitaband2-0.onrender.com"
     },
     {
-      id: "aquair",
-      number: "02",
-      title: "AquAir",
-      category: "Capstone research · Smart water harvesting",
-      status: "Research & design — ongoing",
-      year: "2026–2027",
-      image: "assets/aquair.svg",
-      imageAlt: "Conceptual illustration of AquAir's planned hybrid water harvesting system; not a finished prototype",
-      imageCaption: "CONCEPTUAL ILLUSTRATION",
-      illustrative: true,
-      summary: "An ongoing team thesis exploring a solar-powered system that combines atmospheric and rainwater harvesting with adaptive control and monitoring.",
-      role: "Team capstone project; currently in the research and system-design stage.",
-      details: [
-        "Proposed an ESP32-based system for environmental sensing and control.",
-        "Planned Random Forest classification to help select thermoelectric cooling configurations.",
-        "Designed a dashboard concept using React, Vite, and Firebase for live readings and history."
-      ],
-      stack: ["ESP32 (planned)", "React + Vite (planned)", "Firebase (planned)", "Random Forest (research)"],
-      takeaway: "Designing a technically defensible end-to-end hardware, software, and data workflow.",
-      link: ""
-    },
-    {
       id: "robotic-arm",
-      number: "03",
+      number: "02",
       title: "Automated Pill Color Sorting Robotic Arm",
       category: "Robotics · Automation",
       status: "Academic Project",
@@ -106,7 +84,7 @@ window.PORTFOLIO_DATA = {
     },
     {
       id: "sumobot",
-      number: "04",
+      number: "03",
       title: "Bluetooth-Controlled SumoBot",
       category: "Mobile robotics · Wireless control",
       status: "Academic Project",

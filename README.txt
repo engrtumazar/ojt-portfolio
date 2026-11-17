@@ -11,7 +11,7 @@ OVERVIEW
 --------
 - Dark theme with purple and mint accents and an abstract SVG background.
 - Circular profile photo with orbiting software and hardware icons.
-- Compact project cards: four columns on desktop, two on tablets, and one
+- Compact project cards: three columns on desktop, two on tablets, and one
   on smaller screens.
 - "View details" opens a larger project image, contributions, technologies,
   and an external project link when one is configured.
@@ -36,7 +36,6 @@ assets/profile-placeholder.svg
                               Fallback for an unavailable configured photo.
 assets/BRYAN_TUMAZAR - CV.pdf  Current resume.
 assets/vitaband-dashboard.png  Static screenshot preview of the VitaBand UI.
-assets/aquair.svg              AquAir concept illustration.
 assets/robot-arm.svg           Robotic arm illustration.
 assets/sumobot.svg             SumoBot illustration.
 assets/abstract-background.svg
@@ -133,14 +132,13 @@ A landscape image near 16:9 works best for the card previews.
 
 Current projects:
 - VitaBand 2.0: dashboard preview and external website link.
-- AquAir: ongoing capstone research and system design.
 - Automated Pill Color Sorting Robotic Arm: academic robotics project.
 - Bluetooth-Controlled SumoBot: academic robot project, including hardware
   assistance under the individual contribution.
 
 The VitaBand preview is a static image of its frontend in the waiting-for-
 data state. Opening its website is separate and may require sign-in.
-AquAir and the two robot previews currently use illustrations. Keep project
+The two robot previews currently use illustrations. Keep project
 status and individual contributions accurate when updating this content.
 
 
@@ -180,27 +178,44 @@ https://docs.github.com/en/get-started/git-basics/setting-your-username-in-git
 https://docs.github.com/en/account-and-profile/how-tos/email-preferences/setting-your-commit-email-address
 
 
-PUBLISH WITH GITHUB PAGES
-------------------------
-1. Open the ojt-portfolio repository on GitHub.
-2. Go to Settings, then Pages.
-3. Under Build and deployment, choose "Deploy from a branch" as the source.
-4. Select main and / (root), then save.
-5. Use the live URL shown by GitHub after deployment finishes.
+PUBLISH WITH VERCEL
+------------------
+The portfolio is ready for static hosting. It does not require package.json,
+an npm install, a build command, or environment variables.
 
-The expected project URL, once Pages is enabled, is:
-https://engrtumazar.github.io/ojt-portfolio/
+1. Visit https://vercel.com/new and sign in with GitHub.
+2. Allow Vercel to access the engrtumazar/ojt-portfolio repository.
+3. Select that repository and import it.
+4. Use these deployment settings:
 
-Confirm the published address in Pages settings. This README does not
-confirm that Pages is already enabled. Subsequent pushes to main update
-the site when that branch is configured as its publishing source.
+       Framework Preset: Other
+       Root Directory:   . (the repository root)
+       Build Command:    enable Override and leave the command empty
+       Output Directory: . (or its default for Other)
+       Environment Variables: none
 
-Keep index.html, styles.css, script.js, content.js, and assets/ at the
-repository root. Do not upload them inside another nested portfolio folder.
+5. Deploy and wait until Vercel reports that the deployment is ready.
+6. Open the project's production domain and test its images, resume link,
+   mobile layout, and project details.
+7. Test that production URL in an incognito window before sharing it.
 
-Official publishing reference:
-https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
+Use the production domain shown by Vercel; no Vercel address has been
+verified for this project yet. If visitors are asked to sign in to Vercel,
+check Settings > Deployment Protection. The public production domain must
+be accessible without authentication. Standard Protection can keep preview
+deployments restricted while leaving production domains public.
 
+With the GitHub integration connected, pushes to the production branch
+(main for this project) trigger deployment updates. Use the Git commands
+above after changing local files.
+
+Keep index.html, styles.css, script.js, content.js, and assets/ in the
+repository root. No vercel.json is needed for this buildless project.
+
+Official references:
+https://vercel.com/docs/getting-started-with-vercel
+https://vercel.com/docs/builds/configure-a-build
+https://vercel.com/docs/deployment-protection
 
 QUICK TROUBLESHOOTING
 ---------------------

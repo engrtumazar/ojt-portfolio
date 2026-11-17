@@ -37,7 +37,7 @@ assets/profile-placeholder.svg
 assets/BRYAN_TUMAZAR - CV.pdf  Current resume.
 assets/vitaband-dashboard.png  Static screenshot preview of the VitaBand UI.
 assets/robot-arm.svg           Robotic arm illustration.
-assets/sumobot.svg             SumoBot illustration.
+assets/sumobot.png             Supplied SumoBot project image.
 assets/abstract-background.svg
                               Decorative background artwork.
 assets/favicon.svg            Browser tab icon.
@@ -138,7 +138,7 @@ Current projects:
 
 The VitaBand preview is a static image of its frontend in the waiting-for-
 data state. Opening its website is separate and may require sign-in.
-The two robot previews currently use illustrations. Keep project
+The robotic arm preview currently uses an illustration. Keep project
 status and individual contributions accurate when updating this content.
 
 

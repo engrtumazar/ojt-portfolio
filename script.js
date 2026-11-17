@@ -55,7 +55,7 @@
   projectGrid.innerHTML = data.projects.map((p, index) => {
     return `
     <article class="project-card ${index < 2 ? 'project-card-featured' : ''}">
-      <div class="project-preview">
+      <div class="project-preview${p.imageFit === 'contain' ? ' project-preview-contain' : ''}">
         <img src="${esc(p.image)}" alt="${esc(p.imageAlt)}" loading="${index > 1 ? 'lazy' : 'eager'}" />
         ${!p.illustrative && p.imageCaption ? `<span class="preview-tag">${esc(p.imageCaption)}</span>` : ''}
       </div>

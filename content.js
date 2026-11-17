@@ -63,6 +63,8 @@ window.PORTFOLIO_DATA = {
 
     {
       id: "robotic-arm",
+      sourceCode: "projects/robotic-arm/index.html",
+      sourceDownload: "projects/robotic-arm/ROBOTIC_ARM_COLOR_SORTING.ino",
       number: "02",
       title: "Automated Pill Color Sorting Robotic Arm",
       category: "Robotics · Automation",

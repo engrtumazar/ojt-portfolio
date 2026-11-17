@@ -71,7 +71,7 @@ button{touch-action:manipulation}
 .dialog-preview{margin:0 0 18px}
 .dialog-preview img{width:100%;height:auto;border:1px solid var(--line);border-radius:10px}
 .dialog-preview figcaption{margin-top:7px;font-size:10px;color:var(--muted);letter-spacing:.03em}
-.dialog-website{margin-bottom:18px}
+.dialog-actions{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}
 
 /* Orbiting accents frame the profile photo without covering the face. */
 .hero-portrait{border:0;border-radius:0;overflow:visible;background:transparent;box-shadow:none}
@@ -167,3 +167,15 @@ body{isolation:isolate}
 .skills-tools h3{flex-shrink:0;margin:0;color:var(--muted);font-size:12px;font-weight:600;letter-spacing:0}
 .skills-tools .tag-list{min-width:0;list-style:none;margin:0;padding:0;gap:6px}
 @media(max-width:610px){.skills-tools{align-items:flex-start;flex-direction:column;gap:10px}}
+
+/* A readable, static viewer for downloadable project code. */
+.source-page{max-width:1000px;padding-block:28px 40px}
+.source-back{display:inline-flex;align-items:center;min-height:44px;color:var(--bright);font-size:13px;font-weight:700;margin-bottom:18px}
+.source-back:hover{text-decoration:underline}
+.source-page h1{font-size:clamp(28px,4vw,40px);line-height:1.15;margin-bottom:12px}
+.source-description{color:var(--muted);font-size:14px;line-height:1.8;margin-bottom:18px;max-width:650px}
+.source-toolbar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-block:22px 14px}
+.source-filename{margin:0;font-family:Consolas,monospace;font-size:12px;overflow-wrap:anywhere;color:var(--muted);min-width:0}
+.source-code{margin:0;border:1px solid var(--line);border-radius:12px;background:#10131f;padding:22px;color:#ddd6f3;font:13px/1.75 Consolas,'Courier New',monospace;white-space:pre-wrap;overflow-wrap:anywhere;tab-size:2}
+.source-code code{font:inherit}
+@media(max-width:610px){.source-page{padding-block:20px 32px}.source-code{font-size:12px;padding:16px}}

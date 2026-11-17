@@ -112,6 +112,8 @@
     const project = data.projects.find(p => p.id === btn.dataset.project);
     if (!project) return;
     const projectUrl = safeUrl(project.link);
+    const sourceUrl = safeUrl(project.sourceCode, true);
+    const sourceDownload = safeUrl(project.sourceDownload, true);
     $('#dialog-content').innerHTML = `
       <p class="section-kicker">${esc(project.number)} / PROJECT DETAIL</p>
       <h2 id="modal-title">${esc(project.title)}</h2>
@@ -120,7 +122,11 @@
         ${project.imagePresentation === 'product' ? productMark(project) : ''}
         ${project.illustrative ? '<figcaption>Concept illustration</figcaption>' : project.imageCaption ? `<figcaption>${esc(project.imageCaption)}</figcaption>` : ''}
       </figure>
-      ${projectUrl ? `<a class="btn btn-primary dialog-website" target="_blank" rel="noopener noreferrer" href="${esc(projectUrl)}">Open project website</a>` : ''}
+      ${projectUrl || sourceUrl || sourceDownload ? `<div class="dialog-actions">
+        ${projectUrl ? `<a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="${esc(projectUrl)}">Open project website</a>` : ''}
+        ${sourceUrl ? `<a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="${esc(sourceUrl)}">View source code</a>` : ''}
+        ${sourceDownload ? `<a class="btn btn-secondary" href="${esc(sourceDownload)}" download>Download .ino</a>` : ''}
+      </div>` : ''}
       <p class="dialog-summary">${esc(project.summary)}</p>
       <div class="dialog-meta"><span>${esc(project.status)}</span><span>${esc(project.year)}</span></div>
       ${project.role ? `<h3>My involvement</h3><p>${esc(project.role)}</p>` : ''}

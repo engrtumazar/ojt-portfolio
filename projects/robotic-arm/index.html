@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Arduino source code for the Automated Pill Color Sorting Robotic Arm project." />
+  <title>Robotic Arm Source Code - Bryan C. Tumazar</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg" />
+  <link rel="stylesheet" href="../../styles.css" />
+</head>
+<body>
+  <main class="container source-page" id="main-content">
+    <a class="source-back" href="../../index.html#projects">Back to portfolio</a>
+    <p class="section-kicker">ROBOTIC ARM / SOURCE CODE</p>
+    <h1>Automated Pill Color Sorting Robotic Arm</h1>
+    <p class="source-description">Arduino sketch for color sensing and servo control, using a TCS34725 color sensor, PCA9685 servo driver, and I2C LCD.</p>
+    <div class="source-toolbar">
+      <p class="source-filename" id="source-filename">ROBOTIC_ARM_COLOR_SORTING.ino</p>
+      <a class="btn btn-primary" href="ROBOTIC_ARM_COLOR_SORTING.ino" download>Download .ino</a>
+    </div>
+    <pre class="source-code" aria-labelledby="source-filename"><code>#include &lt;Wire.h&gt;
+#include &lt;Adafruit_PWMServoDriver.h&gt;
+#include &quot;Adafruit_TCS34725.h&quot;
+#include &lt;LiquidCrystal_I2C.h&gt;
+
+// ---------------- PCA9685 ----------------
+Adafruit_PWMServoDriver pca = Adafruit_PWMServoDriver(0x40);
+
+// ---------------- LCD ----------------
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+// ---------------- COLOR SENSOR ----------------
+Adafruit_TCS34725 tcs = Adafruit_TCS34725(
+  TCS34725_INTEGRATIONTIME_154MS,
+  TCS34725_GAIN_16X
+);
+
+// ---------------- CHANNELS ----------------
+#define BASE 0
+#define SHOULDER 1
+#define WRIST 2
+#define GRIPPER 3
+
+// ---------------- PWM ----------------
+#define SERVOMIN 150
+#define SERVOMAX 600
+
+// ---------------- POSITIONS ----------------
+int basePos = 90;
+int shoulderPos = 50;
+int wristPos = 90;
+int gripperPos = 30;
+
+// ---------------- CONVERT ----------------
+int angleToPulse(int angle) {
+  return map(angle, 0, 180, SERVOMIN, SERVOMAX);
+}
+
+// ---------------- SMOOTH MOVE ----------------
+void smoothMove(int ch, int &amp;cur, int target) {
+
+  int stepDelay = 25;
+  int stepSize  = 2;
+
+  if (cur &lt; target) {
+    for (int i = cur; i &lt;= target; i += stepSize) {
+      pca.setPWM(ch, 0, angleToPulse(i));
+      delay(stepDelay);
+    }
+  } else {
+    for (int i = cur; i &gt;= target; i -= stepSize) {
+      pca.setPWM(ch, 0, angleToPulse(i));
+      delay(stepDelay);
+    }
+  }
+
+  pca.setPWM(ch, 0, angleToPulse(target));
+  cur = target;
+}
+
+// ---------------- SETUP ----------------
+void setup() {
+  Serial.begin(9600);
+
+  pca.begin();
+  pca.setPWMFreq(50);
+
+  lcd.init();
+  lcd.backlight();
+
+  if (!tcs.begin()) {
+    lcd.setCursor(0,0);
+    lcd.print(&quot;Sensor Error&quot;);
+    while (1);
+  }
+
+  lcd.setCursor(0,0);
+  lcd.print(&quot;System Ready&quot;);
+
+  goToCenter();
+}
+
+// ---------------- LOOP ----------------
+void loop() {
+
+  goToCenter();
+  delay(1200);
+
+  uint16_t r,g,b,c;
+  tcs.getRawData(&amp;r,&amp;g,&amp;b,&amp;c);
+
+  Serial.print(&quot;R: &quot;); Serial.print(r);
+  Serial.print(&quot; G: &quot;); Serial.print(g);
+  Serial.print(&quot; B: &quot;); Serial.print(b);
+  Serial.print(&quot; C: &quot;); Serial.println(c);
+
+  lcd.clear();
+
+  // ---------------- OBJECT DETECTION ----------------
+  if (c &lt; 80) {
+    lcd.setCursor(0,0);
+    lcd.print(&quot;No Object&quot;);
+    return;
+  }
+
+  // ---------------- NORMALIZED COLOR ----------------
+  float sum = r + g + b;
+  float rn = r / sum;
+  float gn = g / sum;
+  float bn = b / sum;
+
+  bool isRed   = (rn &gt; gn &amp;&amp; rn &gt; bn &amp;&amp; rn &gt; 0.40);
+  bool isGreen = (gn &gt; rn &amp;&amp; gn &gt; bn &amp;&amp; gn &gt; 0.40);
+  bool isBlue  = (bn &gt; rn &amp;&amp; bn &gt; gn &amp;&amp; bn &gt; 0.20);
+
+  if (!isRed &amp;&amp; !isGreen &amp;&amp; !isBlue) {
+    lcd.setCursor(0,0);
+    lcd.print(&quot;Unknown&quot;);
+    return;
+  }
+
+  // ---------------- PICK ----------------
+  gripObject();
+
+  // ---------------- SORT ----------------
+  if (isRed) {
+    lcd.setCursor(0,0);
+    lcd.print(&quot;Color: RED&quot;);
+    moveToBin(30,100,120);
+  }
+
+  else if (isGreen) {
+    lcd.setCursor(0,0);
+    lcd.print(&quot;Color: GREEN&quot;);
+    moveToBin(90,100,100);
+  }
+
+  else if (isBlue) {
+    lcd.setCursor(0,0);
+    lcd.print(&quot;Color: BLUE&quot;);
+    moveToBin(150,100,80);
+  }
+
+  // ---------------- DROP ----------------
+  releaseObject();
+
+  // ---------------- RETURN ----------------
+  goToCenter();
+}
+
+// ---------------- CENTER ----------------
+void goToCenter() {
+  smoothMove(BASE, basePos, 90);
+  smoothMove(SHOULDER, shoulderPos, 50);
+  smoothMove(WRIST, wristPos, 90);
+  smoothMove(GRIPPER, gripperPos, 30);
+}
+
+// ---------------- GRIP ----------------
+void gripObject() {
+  smoothMove(GRIPPER, gripperPos, 0);
+  delay(800);
+}
+
+// ---------------- RELEASE ----------------
+void releaseObject() {
+  smoothMove(GRIPPER, gripperPos, 30);
+  delay(800);
+}
+
+// ---------------- MOVE WITH LIFT FIRST ----------------
+void moveToBin(int b, int s, int w) {
+
+  // 🔼 STEP 1: LIFT FIRST (avoid hitting sensor)
+  smoothMove(SHOULDER, shoulderPos, 30); 
+  smoothMove(WRIST, wristPos, 60);
+  delay(300);
+
+  // 🔁 STEP 2: ROTATE BASE
+  smoothMove(BASE, basePos, b);
+  delay(300);
+
+  // 🔽 STEP 3: LOWER TO BIN
+  smoothMove(SHOULDER, shoulderPos, s);
+  smoothMove(WRIST, wristPos, w);
+}</code></pre>
+  </main>
+</body>
+</html>

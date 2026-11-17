@@ -28,8 +28,15 @@ window.PORTFOLIO_DATA = {
       title: "Embedded systems & IoT",
       description: "Working with microcontrollers, sensors, wireless communication, and system integration.",
       tags: ["ESP32", "LoRa", "GPS", "Arduino Uno and Nano"]
+    },
+    {
+      number: "03",
+      title: "Backend & Database Integration",
+      description: "Connecting web interfaces to backend services and real-time data through academic projects.",
+      tags: ["Firebase Realtime Database", "API Integration"]
     }
   ],
+  tools: ["Git/GitHub", "Arduino IDE", "Visual Studio"],
   projects: [
     {
       id: "vitaband",

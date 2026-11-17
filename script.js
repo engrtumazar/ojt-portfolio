@@ -113,7 +113,7 @@
     $('#dialog-content').innerHTML = `
       <p class="section-kicker">${esc(project.number)} / PROJECT DETAIL</p>
       <h2 id="modal-title">${esc(project.title)}</h2>
-      <figure class="dialog-preview${project.imagePresentation === 'product' ? ' product-stage' : ''}">
+      <figure class="dialog-preview${project.imagePresentation === 'product' ? ' product-stage' : project.imageFit === 'contain' ? ' dialog-preview-contain' : ''}">
         <img src="${esc(safeUrl(project.image, true))}" alt="${esc(project.imageAlt)}" width="960" height="540" />
         ${project.imagePresentation === 'product' ? productMark(project) : ''}
         ${project.illustrative ? '<figcaption>Concept illustration</figcaption>' : project.imageCaption ? `<figcaption>${esc(project.imageCaption)}</figcaption>` : ''}

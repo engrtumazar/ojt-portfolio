@@ -134,7 +134,7 @@ body{isolation:isolate}
 @media(max-width:610px){.resume-button{width:100%;min-width:0}}
 
 /* Preserve the full composition of supplied project images. */
-.project-preview-contain{background:#fff}
+.project-preview-contain{background:#10141e}
 .project-preview-contain img{object-fit:contain}
 
 /* Dark product presentation for the transparent SumoBot cutout. */
@@ -148,3 +148,6 @@ body{isolation:isolate}
 .dialog-preview.product-stage>img{height:100%;padding:20px 40px 28px}
 .dialog-preview.product-stage .product-mark{top:14px;right:14px;width:34px;height:34px}
 .dialog-preview.product-stage .product-mark svg{width:20px;height:20px}
+
+/* Keep wide dashboard screenshots fully visible without enlarging the card. */
+.dialog-preview-contain>img{height:auto;max-height:min(42vh,320px);object-fit:contain;background:#10141e}

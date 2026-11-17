@@ -1,251 +1,137 @@
-﻿BRYAN C. TUMAZAR - OJT PORTFOLIO
+BRYAN C. TUMAZAR - OJT PORTFOLIO
 ==============================
 
-A personal portfolio for a Computer Engineering student at Pamantasan ng
-Lungsod ng Maynila, showcasing academic projects, skills, and OJT interests.
+A static portfolio showing academic projects, individual contributions,
+skills, and OJT interests. Built with HTML, CSS, and JavaScript.
 
 Repository: https://github.com/engrtumazar/ojt-portfolio
-
-
-OVERVIEW
---------
-- Dark theme with purple and mint accents and an abstract SVG background.
-- Circular profile photo with orbiting software and hardware icons.
-- Compact project cards: three columns on desktop, two on tablets, and one
-  on smaller screens.
-- "View details" opens a larger project image, contributions, technologies,
-  and an external project link when one is configured.
-- Scroll entrance animations, hover effects, and reduced-motion support.
-- Mobile navigation, keyboard controls, and hidden scrollbars. The page and
-  project dialogs still scroll normally.
-- Email, GitHub, optional LinkedIn, and PDF resume links.
-
-The portfolio uses plain HTML, CSS, and JavaScript. No npm installation,
-framework, database, or build command is needed to run the portfolio itself.
-
-
-FILES
------
-index.html                    Page structure and section headings.
-styles.css                    Layout, responsive styles, backgrounds, animation.
-script.js                     Content rendering, project dialogs, navigation.
-content.js                    Personal information, skills, and project data.
-README.txt                    Setup, editing, and publishing instructions.
-assets/profile.jpg            Current profile photo.
-assets/profile-placeholder.svg
-                              Fallback for an unavailable configured photo.
-assets/BRYAN_TUMAZAR - CV.pdf  Current resume.
-assets/vitaband-dashboard.png  Static screenshot preview of the VitaBand UI.
-assets/robotic-arm-cutout.png  Background-removed robotic arm image used on site.
-assets/robotic-arm-original.png
-                              Original supplied robotic arm image.
-assets/sumobot-cutout.png      Background-removed SumoBot image used on the site.
-assets/sumobot.png             Original supplied SumoBot image.
-assets/abstract-background.svg
-                              Decorative background artwork.
-assets/favicon.svg            Browser tab icon.
-assets/vitaband.svg            Earlier VitaBand illustration, kept as an asset.
-
+Production: https://ojt-portfolio-plum.vercel.app/
 
 RUN LOCALLY
 -----------
-1. Open the MyPortfolio folder in VS Code or Windows File Explorer.
-2. Open index.html in Chrome, Edge, or Firefox.
-3. After editing, save the files and refresh the browser with Ctrl + Shift + R.
-
-Optional: from a PowerShell terminal inside the project folder, run:
+Open index.html in a browser. From PowerShell inside MyPortfolio:
 
     Start-Process .\index.html
 
-Live Server is optional. Google Fonts load when available; the portfolio
-remains usable with system fonts when offline. External project websites
-require an Internet connection.
+Live Server is optional. No app installation, backend, or build is needed.
+Google Fonts are optional; system fonts remain available when offline.
+Save changes and refresh the page with Ctrl + Shift + R.
 
+FILE MAP
+--------
+index.html        Semantic sections and accessible controls.
+content.js        Personal information, contact links, skills, tools, projects.
+script.js         Rendering functions, project dialogs, menu, navigation, motion.
+styles.css        Numbered style sections, theme tokens, responsive layouts.
+CODE_GUIDE.md     Tagalog walkthrough and programming questions to practice.
+.editorconfig     Shared editor indentation and line-ending settings.
+.prettierrc.json   Formatting conventions for HTML, CSS, and JavaScript.
+assets/           Portrait, resume PDF, dashboard screenshot, robot cutouts, SVGs.
+projects/robotic-arm/
+                  Original .ino file and its static source-code viewer.
+scripts/update-source-preview.mjs
+                  Optional Node helper to refresh that viewer after sketch edits.
+scripts/check-portfolio.mjs
+                  Checks asset paths, project IDs, website URLs, and source preview.
 
-EDIT PERSONAL INFORMATION
--------------------------
-Open content.js to update the following fields:
+EDIT CONTENT
+------------
+Edit content.js first when changing text, images, skills, tools, or links.
+Each property and the project schema have explanatory comments.
 
-- name, firstName, role, headline, introduction, and about.
-- school, degree, graduation, internshipHours, and location.
-- email, github, and resume.
-- profileImage for the portrait.
-- focus for the skill groups and their tags.
+- Use complete HTTPS URLs for github, linkedin, and project website links.
+- Empty optional links produce no corresponding button.
+- image and resume paths must match actual filenames, including capitalization.
+- imageFit: "contain" preserves the entire dashboard or robot image.
+- imagePresentation: "product" applies the dark stage behind robot cutouts.
+- role describes your individual contribution; keep team-project claims accurate.
+- sourceCode and sourceDownload add source actions inside View details.
 
-An optional LinkedIn button can be added with a linkedin field containing
-its full HTTPS profile URL. Empty or omitted optional links are not shown.
+Project cards have static titles and images. View details opens the native
+project dialog. Contact labels remain Email me, GitHub, and LinkedIn.
 
-The nickname field is currently not displayed by script.js. Change
-firstName to change the name shown in the introduction.
+CURRENT MEDIA
+-------------
+assets/profile.jpg
+assets/profile-placeholder.svg
+assets/BRYAN_TUMAZAR - CV.pdf
+assets/vitaband-dashboard.png
+assets/robotic-arm-cutout.png
+assets/sumobot-cutout.png
+assets/abstract-background.svg
+assets/favicon.svg
 
-Some headings and education details are written directly in index.html,
-including the leadership description and the "Fourth-year student" label.
-Edit those there when needed.
+The VitaBand screenshot is a static preview. Its website is a separate app.
+The original white-background robot pictures are not required by the site.
+SumoBot source code is not linked until the actual sketch is provided.
 
+SOURCE CODE VIEWER
+------------------
+The Arduino sketch is kept unchanged by the portfolio styling refactor.
+Its viewer displays escaped source text and links to the real .ino download.
 
-PROFILE PHOTO AND RESUME
-------------------------
-Current settings in content.js:
+After editing the sketch, regenerate the viewer and commit both files:
 
-    profileImage: "assets/profile.jpg",
-    resume: "assets/BRYAN_TUMAZAR - CV.pdf",
+    node scripts/update-source-preview.mjs
 
-To replace a file, keep its current name or update the corresponding path.
-Keep the full filename, capitalization, extension, and spaces consistent.
-JPG, PNG, and WebP portraits can be used.
+This optional editing helper requires Node.js. Hosting the portfolio does not.
+The .ino program needs its Arduino libraries and actual hardware for testing.
 
-The portrait is cropped into a circle. To adjust its framing, edit
-object-position in .portrait-image-wrap img in styles.css.
+CODE CONVENTIONS
+----------------
+Use two-space indentation, descriptive function names, and semicolons.
+Comments explain each data group, rendering function, HTML section, and CSS
+component. Read CODE_GUIDE.md to follow the complete data-to-page flow.
 
-To change the orbit speed, edit --orbit-period in .portrait-orbit-primary.
-The icons remain upright as they orbit. Reduced-motion settings disable
-these animations.
+To format the website files with Prettier (optional, requires Node/npm):
 
+    npx.cmd prettier --write index.html content.js script.js styles.css
 
-PROJECTS AND WEBSITE LINKS
---------------------------
-Each item in the projects array in content.js contains:
+Format source-viewer HTML after regeneration if desired:
 
-- id and number: project identification; keep each id unique.
-- title, category, status, and year: card information.
-- image and imageAlt: preview file and descriptive alternative text.
-- illustrative: true for concept artwork; false for a screenshot or photo.
-- summary: short card description; longer text is available in the dialog.
-- role: your individual contribution, shown under "My involvement".
-- details, stack, and takeaway: expanded project information.
-- link: the full HTTP or HTTPS address of the project website or repository.
+    npx.cmd prettier --write projects/robotic-arm/index.html
 
-Example website link:
+Do not run a website formatter on the Arduino sketch.
 
-    link: "https://vitaband2-0.onrender.com"
+CHECK BEFORE SHARING
+--------------------
+Test the portrait and all project images, View details, source and download
+links, resume PDF, contact links, mobile menu, and keyboard navigation.
+Run the portable content checks (requires Node.js):
 
-The project image and title are static on the card. Visitors select
-"View details" to see the expanded image and project information.
-"Open project website" appears inside that dialog when link is valid.
-Leave link as an empty string when no external destination is available.
+    node scripts/check-portfolio.mjs
 
-To use a new project photo or screenshot:
-1. Put the file in assets/.
-2. Set image to its relative path, for example "assets/my-project.jpg".
-3. Write an accurate imageAlt description.
-4. Set illustrative to false.
-5. Remove or update imageCaption if an old caption no longer applies.
+Check laptop and phone widths, plus Reduce Motion in the device settings.
+Scrollbars are intentionally hidden; normal scrolling remains available.
 
-A landscape image near 16:9 works best for the card previews.
-
-Current projects:
-- VitaBand 2.0: dashboard preview and external website link.
-- Automated Pill Color Sorting Robotic Arm: academic robotics project.
-- Bluetooth-Controlled SumoBot: academic robot project, including hardware
-  assistance under the individual contribution.
-
-The VitaBand preview is a static image of its frontend in the waiting-for-
-data state. Opening its website is separate and may require sign-in.
-The robotic arm and SumoBot use supplied images with backgrounds removed.
-Keep project
-status and individual contributions accurate when updating this content.
-
-
-SAVE UPDATES TO GITHUB
----------------------
-The current checkout already uses branch main and has origin configured
-for https://github.com/engrtumazar/ojt-portfolio.git.
-
-From a terminal inside MyPortfolio, review and upload changes with:
+UPLOAD CHANGES
+--------------
+Review files first, then commit and push from the project folder:
 
     git status
     git add .
-    git commit -m "Update portfolio"
-    git push
+    git commit -m "Refine portfolio design and document code"
+    git push origin main
 
-To upload only a README edit instead:
+The existing Vercel GitHub integration deploys updates pushed to main.
+Use the production domain when sharing the website.
 
-    git add README.txt
-    git commit -m "Update portfolio documentation"
-    git push
+VERCEL SETTINGS
+---------------
+Framework: Other
+Root directory: .
+Build command: empty
+Output directory: .
+Environment variables: none
 
-If Git reports "Author identity unknown", configure the identity for this
-repository. Replace YOUR_GITHUB_EMAIL before running the email command:
+Keep index.html, content.js, script.js, styles.css, assets/, and projects/
+in the repository. scripts/ is an editing helper, not a required build step.
 
-    git config user.name "Bryan C. Tumazar"
-    git config user.email "YOUR_GITHUB_EMAIL"
-
-Then retry the commit. Use an email associated with your GitHub account if
-you want GitHub to attribute the commit to your profile.
-
-If main has no upstream branch, run:
-
-    git push -u origin main
-
-Official identity references:
-https://docs.github.com/en/get-started/git-basics/setting-your-username-in-git
-https://docs.github.com/en/account-and-profile/how-tos/email-preferences/setting-your-commit-email-address
-
-
-PUBLISH WITH VERCEL
-------------------
-The portfolio is ready for static hosting. It does not require package.json,
-an npm install, a build command, or environment variables.
-
-1. Visit https://vercel.com/new and sign in with GitHub.
-2. Allow Vercel to access the engrtumazar/ojt-portfolio repository.
-3. Select that repository and import it.
-4. Use these deployment settings:
-
-       Framework Preset: Other
-       Root Directory:   . (the repository root)
-       Build Command:    enable Override and leave the command empty
-       Output Directory: . (or its default for Other)
-       Environment Variables: none
-
-5. Deploy and wait until Vercel reports that the deployment is ready.
-6. Open the project's production domain and test its images, resume link,
-   mobile layout, and project details.
-7. Test that production URL in an incognito window before sharing it.
-
-Use the production domain shown by Vercel; no Vercel address has been
-verified for this project yet. If visitors are asked to sign in to Vercel,
-check Settings > Deployment Protection. The public production domain must
-be accessible without authentication. Standard Protection can keep preview
-deployments restricted while leaving production domains public.
-
-With the GitHub integration connected, pushes to the production branch
-(main for this project) trigger deployment updates. Use the Git commands
-above after changing local files.
-
-Keep index.html, styles.css, script.js, content.js, and assets/ in the
-repository root. No vercel.json is needed for this buildless project.
-
-Official references:
-https://vercel.com/docs/getting-started-with-vercel
-https://vercel.com/docs/builds/configure-a-build
-https://vercel.com/docs/deployment-protection
-
-QUICK TROUBLESHOOTING
----------------------
-Changes do not appear:
-Save the file, confirm you edited the current MyPortfolio folder, and use
-Ctrl + Shift + R. For the hosted site, also commit and push the changes.
-
-Photo or project image is missing:
-Check its path in content.js and confirm the file exists in assets/.
-Match capitalization exactly, particularly when publishing online.
-
-Resume button is missing or opens an error:
-Check resume in content.js against the actual PDF filename in assets/.
-The current filename has one R at the end of TUMAZAR; spaces are supported.
-
-Website button is missing from a project's details:
-Set that project's link to a complete HTTP or HTTPS URL. Local paths such
-as C:\... and localhost addresses are not public website links.
-
-Animation is not moving:
-Check the device or browser's reduced-motion setting. Content remains
-visible when animations are disabled or unsupported.
-
-Scrollbars are invisible:
-This is intentional. Use the mouse wheel, touch, or keyboard to scroll.
-
-Git says "nothing to commit":
-There are no new staged changes to save. Use git status to inspect the
-checkout; use git push if an existing local commit still needs uploading.
+TROUBLESHOOTING
+---------------
+Missing image: check its exact path and filename in content.js.
+Missing contact button: save a valid complete URL in the matching data field.
+Unchanged online page: save, commit, push, and wait for the deployment to finish.
+Then refresh with Ctrl + Shift + R or open the production URL in Incognito.
+Source viewer differs from .ino: rerun scripts/update-source-preview.mjs.
+Animations disabled: check the device's Reduce Motion preference.

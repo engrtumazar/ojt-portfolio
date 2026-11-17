@@ -1,0 +1,14 @@
+# Shared editor settings keep indentation and line endings consistent.
+root = true
+
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 2
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Preserve the source sketch as supplied; format hardware code separately.
+[*.ino]
+trim_trailing_whitespace = false

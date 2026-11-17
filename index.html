@@ -1,173 +1,345 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="color-scheme" content="dark" />
-  <meta name="theme-color" content="#0b0d15" />
-  <meta name="description" content="Portfolio of Bryan C. Tumazar, a Computer Engineering student seeking an OJT internship in frontend development and embedded systems." />
-  <title>Bryan C. Tumazar — OJT Portfolio</title>
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-  <link rel="stylesheet" href="styles.css" />
-  <script defer src="content.js"></script>
-  <script defer src="script.js"></script>
-</head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <div class="ambient-wrap" aria-hidden="true">
-    <div class="ambient ambient-one"></div>
-    <div class="ambient ambient-two"></div>
-  </div>
+  <head>
+    <!-- Metadata describes the page; defer runs scripts after the HTML has been parsed. -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#0b0d14" />
+    <meta
+      name="description"
+      content="Portfolio of Bryan C. Tumazar, a Computer Engineering student seeking an OJT internship in frontend development and embedded systems."
+    />
+    <title>Bryan C. Tumazar — OJT Portfolio</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media = 'all'"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Load the data object before the script that renders it. -->
+    <script defer src="content.js"></script>
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <!-- Keyboard users can skip the navigation and go straight to the main content. -->
+    <a class="skip-link" href="#main">Skip to content</a>
+    <!-- Decorative background: aria-hidden keeps it out of screen-reader announcements. -->
+    <div class="ambient-wrap" aria-hidden="true">
+      <div class="ambient ambient-one"></div>
+      <div class="ambient ambient-two"></div>
+    </div>
 
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a href="#top" class="brand" aria-label="Back to top">
-        <span class="brand-mark" id="brand-initials">BT</span>
-        <span class="brand-name" id="brand-name">Bryan Tumazar<span class="brand-dot">.</span></span>
-      </a>
-      <nav class="desktop-nav" aria-label="Main navigation">
+    <!-- Shared desktop/mobile navigation. script.js keeps the menu state in sync. -->
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a href="#top" class="brand" aria-label="Back to top">
+          <span class="brand-mark" id="brand-initials">BT</span>
+          <span class="brand-name" id="brand-name"
+            >Bryan Tumazar<span class="brand-dot">.</span></span
+          >
+        </a>
+        <nav class="desktop-nav" aria-label="Main navigation">
+          <a href="#projects">Projects</a>
+          <a href="#expertise">Skills</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="nav-actions">
+          <a href="#contact" class="nav-cta">Contact me</a>
+          <button
+            class="menu-toggle"
+            id="menu-toggle"
+            type="button"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-nav"
+          >
+            Menu
+          </button>
+        </div>
+      </div>
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
         <a href="#projects">Projects</a>
         <a href="#expertise">Skills</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </nav>
-      <div class="nav-actions">
-        <a href="#contact" class="nav-cta">Contact me</a>
-        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
-          Menu
-        </button>
-      </div>
-    </div>
-    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
-      <a href="#projects">Projects</a>
-      <a href="#expertise">Skills</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+    </header>
 
-  <main id="main">
-    <section class="hero container" id="top" aria-labelledby="hero-headline">
-      <div class="hero-content">
-        <p class="eyebrow"><span class="eyebrow-dot"></span> AVAILABLE FOR OJT OPPORTUNITIES</p>
-        <p class="hero-hello">Hey there, I'm <span id="hero-firstname">Bryan</span></p>
-        <h1 id="hero-headline">I build where <em>software</em> meets <em>hardware.</em></h1>
-        <p class="hero-description" id="hero-intro">Fourth-year Computer Engineering student interested in frontend development and embedded systems.</p>
-        <div class="hero-actions">
-          <a href="#projects" class="btn btn-primary">View my projects</a>
-          <a href="#about" class="btn btn-secondary">About me</a>
-        </div>
-        <div class="hero-metadata" aria-label="Education and internship details">
-          <span><svg class="metadata-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg> <span id="location-label">Metro Manila, Philippines</span></span>
-          <span><svg class="metadata-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> <span id="hours-label">240-hour OJT</span></span>
-        </div>
-      </div>
-      <figure class="hero-portrait">
-        <div class="portrait-visual">
-          <div class="portrait-orbits" aria-hidden="true">
-            <span class="portrait-orbit portrait-orbit-guide"></span>
-            <span class="portrait-orbit portrait-orbit-primary">
-              <span class="orbit-satellite satellite-code"><span class="orbit-component">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-14-2 18"/></svg>
-              </span></span>
-              <span class="orbit-satellite satellite-chip"><span class="orbit-component orbit-component-hardware">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M9 3v3m6-3v3M9 18v3m6-3v3M3 9h3m-3 6h3m12-6h3m-3 6h3"/></svg>
-              </span></span>
-              <span class="orbit-satellite satellite-browser"><span class="orbit-component">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01M7 13h4m-4 3h10"/></svg>
-              </span></span>
-              <span class="orbit-satellite satellite-circuit"><span class="orbit-component orbit-component-hardware">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="5" r="2"/><circle cx="19" cy="7" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M5 7v4h8V7h4M5 17v-3h8v5h4"/></svg>
-              </span></span>
-            </span>
-            <span class="portrait-orbit-plane"><span class="portrait-orbit portrait-orbit-secondary"></span></span>
+    <main id="main">
+      <!-- Hero: the first column introduces you; the second displays your portrait. -->
+      <section class="hero container" id="top" aria-labelledby="hero-headline">
+        <div class="hero-content">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> AVAILABLE FOR OJT OPPORTUNITIES</p>
+          <p class="hero-hello">Hey there, I'm <span id="hero-firstname">Bryan</span></p>
+          <h1 id="hero-headline">I build where <em>software</em> meets <em>hardware.</em></h1>
+          <p class="hero-description" id="hero-intro">
+            Fourth-year Computer Engineering student interested in frontend development and embedded
+            systems.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">View my projects</a>
+            <a href="#about" class="btn btn-secondary">About me</a>
           </div>
-          <div class="portrait-image-wrap">
-            <img id="profile-photo" src="assets/profile.jpg" alt="Placeholder for Bryan's profile photo" width="600" height="750" fetchpriority="high" />
+          <div class="hero-metadata" aria-label="Education and internship details">
+            <span
+              ><svg
+                class="metadata-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 0 1 16 0Z" />
+                <circle cx="12" cy="10" r="2.5" />
+              </svg>
+              <span id="location-label">Metro Manila, Philippines</span></span
+            >
+            <span
+              ><svg
+                class="metadata-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3 2" />
+              </svg>
+              <span id="hours-label">240-hour OJT</span></span
+            >
           </div>
         </div>
-        <figcaption class="portrait-caption">
-          <strong id="portrait-name">Bryan C. Tumazar</strong>
-          <span id="portrait-role">Computer Engineering Student</span>
-        </figcaption>
-      </figure>
-    </section>
+        <!-- CSS rotates the orbit and counter-rotates its SVG icons to keep them upright. -->
+        <figure class="hero-portrait">
+          <div class="portrait-visual">
+            <div class="portrait-orbits" aria-hidden="true">
+              <span class="portrait-orbit portrait-orbit-guide"></span>
+              <span class="portrait-orbit portrait-orbit-primary">
+                <span class="orbit-satellite satellite-code"
+                  ><span class="orbit-component">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-14-2 18" />
+                    </svg> </span
+                ></span>
+                <span class="orbit-satellite satellite-chip"
+                  ><span class="orbit-component orbit-component-hardware">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <rect x="6" y="6" width="12" height="12" rx="2" />
+                      <rect x="9" y="9" width="6" height="6" rx="1" />
+                      <path d="M9 3v3m6-3v3M9 18v3m6-3v3M3 9h3m-3 6h3m12-6h3m-3 6h3" />
+                    </svg> </span
+                ></span>
+                <span class="orbit-satellite satellite-browser"
+                  ><span class="orbit-component">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <rect x="3" y="4" width="18" height="16" rx="2" />
+                      <path d="M3 9h18M7 6.5h.01M10 6.5h.01M7 13h4m-4 3h10" />
+                    </svg> </span
+                ></span>
+                <span class="orbit-satellite satellite-circuit"
+                  ><span class="orbit-component orbit-component-hardware">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <circle cx="5" cy="5" r="2" />
+                      <circle cx="19" cy="7" r="2" />
+                      <circle cx="5" cy="19" r="2" />
+                      <circle cx="19" cy="19" r="2" />
+                      <path d="M5 7v4h8V7h4M5 17v-3h8v5h4" />
+                    </svg> </span
+                ></span>
+              </span>
+              <span class="portrait-orbit-plane"
+                ><span class="portrait-orbit portrait-orbit-secondary"></span
+              ></span>
+            </div>
+            <div class="portrait-image-wrap">
+              <img
+                id="profile-photo"
+                src="assets/profile.jpg"
+                alt="Portrait of Bryan C. Tumazar"
+                width="600"
+                height="750"
+                fetchpriority="high"
+              />
+            </div>
+          </div>
+          <figcaption class="portrait-caption">
+            <strong id="portrait-name">Bryan C. Tumazar</strong>
+            <span id="portrait-role">Computer Engineering Student</span>
+          </figcaption>
+        </figure>
+      </section>
 
-    <section class="strip" aria-label="Portfolio specialties">
-      <div class="container strip-inner">
-        <span class="strip-caption">INTERESTS & SKILLS</span>
-        <div class="strip-items"><span>FRONTEND</span><span class="strip-separator" aria-hidden="true"></span><span>EMBEDDED SYSTEMS</span><span class="strip-separator" aria-hidden="true"></span><span>IoT</span></div>
-      </div>
-    </section>
-
-    <section class="section container" id="projects" aria-labelledby="projects-title">
-      <div class="section-header">
-        <div>
-          <p class="section-kicker">01 / SELECTED WORK</p>
-          <h2 id="projects-title">Projects I've <span class="accent-text">worked on.</span></h2>
-          <p class="section-copy">Academic projects in software, electronics, and robotics. Select “View details” to read about each project, my contributions, and the tools involved.</p>
+      <!-- A small specialties strip connects the introduction to the project section. -->
+      <section class="strip" aria-label="Portfolio specialties">
+        <div class="container strip-inner">
+          <span class="strip-caption">INTERESTS & SKILLS</span>
+          <div class="strip-items">
+            <span>FRONTEND</span><span class="strip-separator" aria-hidden="true"></span
+            ><span>EMBEDDED SYSTEMS</span><span class="strip-separator" aria-hidden="true"></span
+            ><span>IoT</span>
+          </div>
         </div>
-        <span class="section-count">[ 03 PROJECTS ]</span>
-      </div>
-      <div class="projects-grid" id="projects-grid"></div>
-    </section>
+      </section>
 
-    <section class="section section-tinted" id="expertise" aria-labelledby="expertise-title">
-      <div class="container">
-        <div class="section-header compact">
+      <!-- Project cards are generated from PORTFOLIO_DATA.projects in content.js. -->
+      <section class="section container" id="projects" aria-labelledby="projects-title">
+        <div class="section-header">
           <div>
-            <p class="section-kicker">02 / SKILLS & INTERESTS</p>
-            <h2 id="expertise-title">What I bring <span class="accent-text">to the table.</span></h2>
-            <p class="section-copy">Areas I have worked with, and areas I'm actively developing further.</p>
+            <p class="section-kicker">01 / SELECTED WORK</p>
+            <h2 id="projects-title">Projects I've <span class="accent-text">worked on.</span></h2>
+            <p class="section-copy">
+              Academic projects in software, electronics, and robotics. Select “View details” to
+              read about each project, my contributions, and the tools involved.
+            </p>
+          </div>
+          <span class="section-count">[ 03 PROJECTS ]</span>
+        </div>
+        <div class="projects-grid" id="projects-grid"></div>
+      </section>
+
+      <!-- Skills and tools are separate arrays, making future content edits straightforward. -->
+      <section class="section section-tinted" id="expertise" aria-labelledby="expertise-title">
+        <div class="container">
+          <div class="section-header compact">
+            <div>
+              <p class="section-kicker">02 / SKILLS & INTERESTS</p>
+              <h2 id="expertise-title">
+                What I bring <span class="accent-text">to the table.</span>
+              </h2>
+              <p class="section-copy">
+                Areas I have worked with, and areas I'm actively developing further.
+              </p>
+            </div>
+          </div>
+          <div class="expertise-grid" id="expertise-grid"></div>
+          <div class="skills-tools">
+            <h3 id="skills-tools-title">Tools</h3>
+            <ul class="tag-list" id="tools-list" aria-labelledby="skills-tools-title"></ul>
           </div>
         </div>
-        <div class="expertise-grid" id="expertise-grid"></div>
-        <div class="skills-tools">
-          <h3 id="skills-tools-title">Tools</h3>
-          <ul class="tag-list" id="tools-list" aria-labelledby="skills-tools-title"></ul>
+      </section>
+
+      <!-- Education and contributions remain visible independently of the project dialog. -->
+      <section class="section container about-section" id="about" aria-labelledby="about-title">
+        <div class="about-sidebar">
+          <p class="section-kicker">03 / ABOUT ME</p>
+          <h2 id="about-title">
+            Curious by nature.<br /><span class="accent-text">Hands-on by choice.</span>
+          </h2>
+          <div class="about-monogram" aria-hidden="true">
+            <span>BT</span><small>COMPUTER<br />ENGINEERING</small>
+          </div>
         </div>
-      </div>
-    </section>
-
-    <section class="section container about-section" id="about" aria-labelledby="about-title">
-      <div class="about-sidebar">
-        <p class="section-kicker">03 / ABOUT ME</p>
-        <h2 id="about-title">Curious by nature.<br/><span class="accent-text">Hands-on by choice.</span></h2>
-        <div class="about-monogram" aria-hidden="true"><span>BT</span><small>COMPUTER<br/>ENGINEERING</small></div>
-      </div>
-      <div class="about-main">
-        <p class="about-lead" id="about-copy">My academic work combines electronics, sensor-based systems, and user-facing software.</p>
-        <div class="about-facts">
-          <div class="fact"><span class="fact-label">EDUCATION</span><strong id="degree-label">BS Computer Engineering</strong><span id="school-label">Pamantasan ng Lungsod ng Maynila</span></div>
-          <div class="fact"><span class="fact-label">GRADUATION</span><strong id="graduation-label">Expected 2027</strong><span>Fourth-year student</span></div>
-          <div class="fact"><span class="fact-label">LEADERSHIP</span><strong>Block Representative</strong><span>Since Second Year</span></div>
-          <div class="fact"><span class="fact-label">CURRENT GOAL</span><strong>OJT Internship</strong><span id="internship-label">240 required hours</span></div>
+        <div class="about-main">
+          <p class="about-lead" id="about-copy">
+            My academic work combines electronics, sensor-based systems, and user-facing software.
+          </p>
+          <div class="about-facts">
+            <div class="fact">
+              <span class="fact-label">EDUCATION</span
+              ><strong id="degree-label">BS Computer Engineering</strong
+              ><span id="school-label">Pamantasan ng Lungsod ng Maynila</span>
+            </div>
+            <div class="fact">
+              <span class="fact-label">GRADUATION</span
+              ><strong id="graduation-label">Expected 2027</strong><span>Fourth-year student</span>
+            </div>
+            <div class="fact">
+              <span class="fact-label">LEADERSHIP</span><strong>Block Representative</strong
+              ><span>Since Second Year</span>
+            </div>
+            <div class="fact">
+              <span class="fact-label">CURRENT GOAL</span><strong>OJT Internship</strong
+              ><span id="internship-label">240 required hours</span>
+            </div>
+          </div>
+          <div id="resume-holder"></div>
         </div>
-        <div id="resume-holder"></div>
+      </section>
+
+      <!-- Contact buttons only appear when their corresponding data field is valid. -->
+      <section class="contact-section" id="contact" aria-labelledby="contact-title">
+        <div class="container contact-content">
+          <div class="contact-heading">
+            <p class="section-kicker">04 / SAY HELLO</p>
+            <h2 id="contact-title">
+              Let's build something <span class="accent-text">meaningful.</span>
+            </h2>
+            <p>
+              I'm looking for an OJT opportunity where I can contribute, learn from engineers and
+              developers, and grow through real projects.
+            </p>
+          </div>
+          <div id="contact-actions" class="contact-actions"></div>
+          <div class="contact-footer">
+            <span>OPEN TO INTERNSHIP OPPORTUNITIES</span
+            ><span id="contact-location">Metro Manila, Philippines</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- The year is refreshed by JavaScript, so it does not need an annual manual edit. -->
+    <footer class="footer">
+      <div class="container footer-inner">
+        <span id="footer-name">Copyright 2026 Bryan C. Tumazar</span
+        ><span>Designed & built for my OJT journey</span><a href="#top">Back to top</a>
       </div>
-    </section>
+    </footer>
 
-    <section class="contact-section" id="contact" aria-labelledby="contact-title">
-      <div class="container contact-content">
-        <p class="section-kicker">04 / SAY HELLO</p>
-        <h2 id="contact-title">Let's build something <span class="accent-text">meaningful.</span></h2>
-        <p>I'm looking for an OJT opportunity where I can contribute, learn from engineers and developers, and grow through real projects.</p>
-        <div id="contact-actions" class="contact-actions"></div>
-        <div class="contact-footer"><span>OPEN TO INTERNSHIP OPPORTUNITIES</span><span id="contact-location">Metro Manila, Philippines</span></div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-inner"><span id="footer-name">Copyright 2026 Bryan C. Tumazar</span><span>Designed & built for my OJT journey</span><a href="#top">Back to top</a></div>
-  </footer>
-
-  <dialog class="project-dialog" id="project-dialog" aria-labelledby="modal-title">
-    <button type="button" class="dialog-close" id="dialog-close" aria-label="Close project details">Close</button>
-    <div id="dialog-content"></div>
-  </dialog>
-</body>
+    <!-- Native dialog: showModal() provides modal focus behavior and Escape support. -->
+    <dialog class="project-dialog" id="project-dialog" aria-labelledby="modal-title">
+      <button
+        type="button"
+        class="dialog-close"
+        id="dialog-close"
+        aria-label="Close project details"
+      >
+        Close
+      </button>
+      <div id="dialog-content"></div>
+    </dialog>
+  </body>
 </html>

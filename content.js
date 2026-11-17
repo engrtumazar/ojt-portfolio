@@ -6,7 +6,7 @@ window.PORTFOLIO_DATA = {
   role: "Computer Engineering Student",
   profileImage: "assets/profile.jpg", // Put your photo in assets, then set this to "assets/profile.jpg".
   headline: "I build where software meets hardware.",
-  introduction: "I'm a fourth-year BS Computer Engineering student at Pamantasan ng Lungsod ng Maynila, interested in frontend development and embedded systems. I enjoy turning technical ideas into systems people can actually use.",
+  introduction: "I'm a fourth-year BS Computer Engineering student at Pamantasan ng Lungsod ng Maynila, interested in frontend development, embedded systems, and applied AI. I enjoy turning technical ideas into systems people can actually use.",
   school: "Pamantasan ng Lungsod ng Maynila",
   degree: "BS Computer Engineering",
   graduation: "Expected 2027",
@@ -21,13 +21,19 @@ window.PORTFOLIO_DATA = {
       number: "01",
       title: "Frontend development",
       description: "Building readable, responsive interfaces and connecting them to live application data.",
-      tags: ["HTML", "CSS", "JavaScript", "Firebase Realtime Database", "React", "Vite"]
+      tags: ["HTML", "CSS", "JavaScript", "Firebase Realtime Database"]
     },
     {
       number: "02",
       title: "Embedded systems & IoT",
       description: "Working with microcontrollers, sensors, wireless communication, and system integration.",
-      tags: ["ESP32", "LoRa", "GPS", "Semiconductor (interest)"]
+      tags: ["ESP32", "LoRa", "GPS", "Arduino Uno and Nano"]
+    },
+    {
+      number: "03",
+      title: "Applied AI & Automation",
+      description: "Exploring data-driven control, AI-assisted workflows, and practical automation applications.",
+      tags: ["Prompt Engineering", "Random Forest", "Python"]
     }
   ],
   projects: [
@@ -60,18 +66,16 @@ window.PORTFOLIO_DATA = {
       category: "Robotics · Automation",
       status: "Academic Project",
       year: "2026",
-      image: "assets/robotic-arm-cutout.png",
-      imageAlt: "Metal robotic arm holding a red cylinder in its black gripper, mounted on a round base with visible wiring and a circuit board",
-      imageFit: "contain",
-      imagePresentation: "product",
-      productIcon: "robotics",
-      illustrative: false,
+      image: "assets/robot-arm.svg",
+      imageAlt: "Stylized robotic arm and colored objects; illustrative artwork, not a prototype photograph",
+      imageCaption: "CONCEPTUAL ILLUSTRATION",
+      illustrative: true,
       summary: "An academic robotics project centered on automatically sorting pills according to color.",
       role: "Helped design the sensing and control logic for the robotic arm's color sorting task.", 
       details: [
         "Explored how mechanical movement and automated sorting can work together."
       ],
-      stack: ["Robotics", "Color sorting", "Automation"],
+      stack: ["Robotics", "Color Sorting", "Automation"],
       takeaway: "Understanding how sensing, movement, and control interact in a physical system.",
       link: ""
     },
@@ -82,11 +86,10 @@ window.PORTFOLIO_DATA = {
       category: "Mobile robotics · Wireless control",
       status: "Academic Project",
       year: "2026",
-      image: "assets/sumobot-cutout.png",
-      imageAlt: "Blue Bluetooth-controlled SumoBot with a front scoop and two illuminated headlights",
-      imageFit: "contain",
-      imagePresentation: "product",
-      illustrative: false,
+      image: "assets/sumobot.svg",
+      imageAlt: "Stylized compact robot with Bluetooth symbol; illustrative artwork, not a prototype photograph",
+      imageCaption: "CONCEPTUAL ILLUSTRATION",
+      illustrative: true,
       summary: "A Bluetooth-controlled robot project that provided hands-on experience with wireless commands and hardware integration.",
       role: "Assisted with the hardware components of the Bluetooth-controlled SumoBot.",
       details: [

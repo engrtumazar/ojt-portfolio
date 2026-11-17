@@ -6,7 +6,7 @@ window.PORTFOLIO_DATA = {
   role: "Computer Engineering Student",
   profileImage: "assets/profile.jpg", // Put your photo in assets, then set this to "assets/profile.jpg".
   headline: "I build where software meets hardware.",
-  introduction: "I'm a fourth-year BS Computer Engineering student at Pamantasan ng Lungsod ng Maynila, interested in frontend development, embedded systems, and applied AI. I enjoy turning technical ideas into systems people can actually use.",
+  introduction: "I'm a fourth-year BS Computer Engineering student at Pamantasan ng Lungsod ng Maynila, interested in frontend development and embedded systems. I enjoy turning technical ideas into systems people can actually use.",
   school: "Pamantasan ng Lungsod ng Maynila",
   degree: "BS Computer Engineering",
   graduation: "Expected 2027",
@@ -28,12 +28,6 @@ window.PORTFOLIO_DATA = {
       title: "Embedded systems & IoT",
       description: "Working with microcontrollers, sensors, wireless communication, and system integration.",
       tags: ["ESP32", "LoRa", "GPS", "Arduino Uno and Nano"]
-    },
-    {
-      number: "03",
-      title: "Applied AI & Automation",
-      description: "Exploring data-driven control, AI-assisted workflows, and practical automation applications.",
-      tags: ["Prompt Engineering", "Random Forest", "Python"]
     }
   ],
   projects: [

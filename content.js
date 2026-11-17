@@ -14,6 +14,7 @@ window.PORTFOLIO_DATA = {
   location: "Metro Manila, Philippines",
   email: "bryncstrtmzrr@gmail.com",
   github: "https://github.com/engrtumazar",
+  linkedin: "https://www.linkedin.com/in/bryantumazar/",
   resume: "assets/BRYAN_TUMAZAR - CV.pdf",
   about: "My academic work combines electronics, sensor-based systems, and user-facing software. In team projects, I especially enjoy connecting device data to interfaces that make the information easier to understand. Outside technical work, serving as a block representative has helped me practice coordination and clear communication.",
   focus: [

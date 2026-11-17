@@ -37,7 +37,8 @@ assets/profile-placeholder.svg
 assets/BRYAN_TUMAZAR - CV.pdf  Current resume.
 assets/vitaband-dashboard.png  Static screenshot preview of the VitaBand UI.
 assets/robot-arm.svg           Robotic arm illustration.
-assets/sumobot.png             Supplied SumoBot project image.
+assets/sumobot-cutout.png      Background-removed SumoBot image used on the site.
+assets/sumobot.png             Original supplied SumoBot image.
 assets/abstract-background.svg
                               Decorative background artwork.
 assets/favicon.svg            Browser tab icon.

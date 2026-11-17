@@ -136,3 +136,15 @@ body{isolation:isolate}
 /* Preserve the full composition of supplied project images. */
 .project-preview-contain{background:#fff}
 .project-preview-contain img{object-fit:contain}
+
+/* Dark product presentation for the transparent SumoBot cutout. */
+.product-stage{position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 62% 35%,#344c7938,transparent 55%),radial-gradient(ellipse at 50% 100%,#aa91ff35,transparent 65%),linear-gradient(145deg,#212138,#111521 72%)}
+.product-stage::before{content:'';position:absolute;inset:0;z-index:0;background-image:linear-gradient(#aa91ff0d 1px,transparent 1px),linear-gradient(90deg,#aa91ff0d 1px,transparent 1px);background-size:26px 26px;mask-image:linear-gradient(transparent,#000);-webkit-mask-image:linear-gradient(transparent,#000);pointer-events:none}
+.product-stage::after{content:'';position:absolute;left:16%;right:16%;bottom:7%;height:17%;z-index:0;border:1px solid #aa91ff38;border-radius:50%;background:radial-gradient(ellipse,#aa91ff20,transparent 70%);box-shadow:0 0 28px #aa91ff16;pointer-events:none}
+.product-stage>img{position:relative;z-index:1;width:100%;height:100%;padding:9px 24px 13px;object-fit:contain;object-position:center;border:0;border-radius:0;filter:drop-shadow(0 10px 9px #00000070)}
+.product-mark{position:absolute;top:10px;right:10px;z-index:2;display:grid;place-items:center;width:26px;height:26px;border:1px solid #aa91ff36;border-radius:7px;background:#aa91ff0d;color:#c9b9ff}
+.product-mark svg{display:block;width:15px;height:15px}
+.dialog-preview.product-stage{aspect-ratio:16/10;border:1px solid var(--line);border-radius:12px}
+.dialog-preview.product-stage>img{height:100%;padding:20px 40px 28px}
+.dialog-preview.product-stage .product-mark{top:14px;right:14px;width:34px;height:34px}
+.dialog-preview.product-stage .product-mark svg{width:20px;height:20px}

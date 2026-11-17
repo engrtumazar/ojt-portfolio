@@ -94,8 +94,8 @@
   if (data.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
     contact.push(`<a class="btn btn-primary" href="mailto:${esc(data.email)}?subject=OJT%20Internship%20Inquiry">Email me</a>`);
   }
-  if (safeUrl(data.github)) contact.push(`<a class="btn btn-secondary" target="_blank" rel="noopener noreferrer" href="${esc(safeUrl(data.github))}">GitHub profile</a>`);
-  if (safeUrl(data.linkedin)) contact.push(`<a class="btn btn-secondary" target="_blank" rel="noopener noreferrer" href="${esc(safeUrl(data.linkedin))}">LinkedIn profile</a>`);
+  if (safeUrl(data.github)) contact.push(`<a class="btn btn-secondary" target="_blank" rel="noopener noreferrer" href="${esc(safeUrl(data.github))}">GitHub</a>`);
+  if (safeUrl(data.linkedin)) contact.push(`<a class="btn btn-secondary" target="_blank" rel="noopener noreferrer" href="${esc(safeUrl(data.linkedin))}">LinkedIn</a>`);
   if (!contact.length) contact.push(`<p class="contact-placeholder">Direct contact details will be available soon.</p>`);
   $('#contact-actions').innerHTML = contact.join('');
 

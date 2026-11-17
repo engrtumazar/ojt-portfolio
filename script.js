@@ -159,7 +159,7 @@
       .join("");
 
     const count = String(data.projects.length).padStart(2, "0");
-    setText(".section-count", `${count} PROJECTS`);
+    setText(".section-count", `[ ${count} PROJECTS ]`);
   }
 
   /** Skill groups and tools are separate so supporting tools stay visually compact. */
@@ -383,7 +383,6 @@
         else link.removeAttribute("aria-current");
       });
 
-      query(".site-header").classList.toggle("is-scrolled", window.scrollY > 16);
       framePending = false;
     }
 
